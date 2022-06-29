@@ -1,0 +1,206 @@
+<!-- Modal Ver Producto Empresa -->
+
+<br>
+<div class="container ">
+  <div class="container text-center text-Whyte bg-white py-4">
+      <div class="container">
+                  <h1 >
+                     USUARIOS REGISTRADOS</h1>
+<br>
+
+
+
+<div class = "container">
+  <div class ="row">
+    <div class="col-12 col-md-4" *ngFor="let user of usuariosModelGet">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ user.nombreUsuario }}</h4>
+
+          <p class="card-text">ID: {{user._id}}</p>
+          <p class="card-text">Email: {{ user.email }}</p>
+          <p class="card-text">Estado: {{ user.estado }}</p>
+          <p class="card-text">Rol: {{ user.rol }}</p>
+          <p class="card-text">Hotel hospedado: {{ user.hotelHospedado }}</p>
+
+          <div class="card-footer text-muted">
+
+          <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#editarUsuariosApp"
+          aria-controls="offcanvasExample" (click)="getUsuariosId(user._id)">
+            Editar
+          </button>
+
+          <button type="button" class="btn btn-danger mx-2" (click)="eliminarUsuarios(user._id)">Eliminar</button>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<h1 >
+  ADMINISTRADORES DE HOTELES</h1>
+
+
+  <div class = "container">
+  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarAdminHotel">
+    Agregar administradores
+  </button>
+
+    <div class ="row">
+      <div class="col-12 col-md-4" *ngFor="let adminHotel of usuariosGetHotel">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{ adminHotel.nombreUsuario }}</h4>
+
+            <p class="card-text">ID: {{adminHotel._id}}</p>
+            <p class="card-text">Email: {{ adminHotel.email }}</p>
+            <p class="card-text">Rol: {{ adminHotel.rol }}</p>
+
+            <div class="card-footer text-muted">
+              <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample" (click)="getUsuariosIdAdminHotel(adminHotel._id)">
+              Editar
+              </button>
+
+              <button type="button" class="btn btn-danger mx-2" (click)="hotelAdminEliminar(adminHotel._id)">Eliminar</button>
+
+
+            </div>
+
+
+            <div class="card-footer text-muted">
+              <button type="button" class="btn btn btn-warning" (click)="getUsuariosIdAdminHotel(adminHotel._id)" [routerLink]="['/hotelAdmin', adminHotel._id]">Agregar hotel</button>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal Agregar Administrador Hoteles-->
+<div class="modal fade" id="modalAgregarAdminHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Admin Hotel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="mb-3">
+          <label for="inputNombre" class="form-label">Nombre Usuario</label>
+          <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+          [(ngModel)]="usuariosModelPost.nombreUsuario">
+        </form>
+
+        <form class="mb-3">
+          <label for="inputEmail" class="form-label"> Email </label>
+          <input type="text" class="form-control" id="inputEmail" name="email" #email="ngModel"
+          [(ngModel)]="usuariosModelPost.email">
+        </form>
+
+        <form class="mb-3">
+          <label for="inputPassword" class="form-label"> Password </label>
+          <input type="text" class="form-control" id="inputPassword" name="password" #password="ngModel"
+          [(ngModel)]="usuariosModelPost.password">
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="postAdminAgregar()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Editar -->
+<!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+
+  </div>
+</div> -->
+
+
+<!-- Modal Editar Usuarios-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="editarUsuariosApp" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar Usuarios</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+      <div class ="mb-3">
+
+        <label for="inputNombre" class="form-label"> Nombre </label>
+          <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+          [(ngModel)]="usuariosModelGetId.nombreUsuario">
+
+          <label for="inputEmail" class="form-label"> Email </label>
+          <input type="text" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          [(ngModel)]="usuariosModelGetId.email">
+
+          <!-- <label for="inputPassword" class="form-label"> Password </label>
+          <input type="text" class="form-control" id="inputPassword" name="password" #password="ngModel"
+          [(ngModel)]="usuariosModelGetId.password"> -->
+
+          <label for="inputEstado" class="form-label"> Estado </label>
+          <input type="text" class="form-control" id="inputEstado" name="estado" #estado="ngModel"
+          [(ngModel)]="usuariosModelGetId.estado">
+
+          <label for="inputRol" class="form-label"> Rol </label>
+          <input type="text" class="form-control" id="inputRol" name="rol" #rol="ngModel"
+          [(ngModel)]="usuariosModelGetId.rol">
+
+          <br>
+
+          <button class="btn btn-success" data-bs-dismiss="offcanvas" (click)="putUsuarios()">Editar Usuarios</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Editar Rol Admin-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar administradores de hoteles</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+      <div class ="mb-3">
+        <label for="inputNombre" class="form-label"> Nombre </label>
+          <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+          [(ngModel)]="usuariosModelGetId.nombreUsuario">
+
+          <label for="inputEmail" class="form-label"> Email </label>
+          <input type="text" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          [(ngModel)]="usuariosModelGetId.email">
+
+          <label for="inputRol" class="form-label"> Rol </label>
+          <input type="text" class="form-control" id="inputRol" name="rol" #rol="ngModel"
+          [(ngModel)]="usuariosModelGetId.rol">
+
+          <button class="btn btn-success" data-bs-dismiss="offcanvas" (click)="putRolAdminHotel()">Editar administradores de hoteles</button>
+
+      </div>
+    </form>
+  </div>
+</div>
