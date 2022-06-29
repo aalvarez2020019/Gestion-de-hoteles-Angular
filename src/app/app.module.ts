@@ -11,10 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
-import { RolAdminAppComponent } from './components/rol-admin-app/rol-admin-app.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
+import { EventosComponent } from './components/eventos/eventos.component';
+import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.compon
     NavbarComponent,
     HeroDetailComponent,
     RegistrarComponent,
-    RolAdminAppComponent,
     UsuariosComponent,
     HotelesComponent,
     HotelAdminComponent,
+    EventosComponent,
+    VistaAdminHotelComponent,
 
   ],
   imports: [

@@ -27,9 +27,7 @@
 <br>
 <div class ="container">
 
-  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarHotel">
-    Agregar Hoteles
-  </button>
+
 
   <div class="row">
     <div class="col-12 col-md-4" *ngFor="let adminHotel of hotelesModelGet">
@@ -69,61 +67,4 @@
   </div>
 </div> -->
 
-<!-- Modal Agregar  -->
-<div class="modal fade" id="modalAgregarHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Hotel</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
 
-          <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre Hotel</label>
-            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
-            [(ngModel)]="hotelesModelPost.nombre">
-          </div>
-
-          <div class="mb-3">
-            <label for="inputPais" class="form-label">Pais</label>
-            <input type="text" class="form-control" id="inputPais" name="pais" #pais="ngModel"
-            [(ngModel)]="hotelesModelPost.pais">
-          </div>
-
-          <div class="mb-3">
-            <label for="inputCiudad" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="inputCiudad" name="ciudad" #ciudad="ngModel"
-            [(ngModel)]="hotelesModelPost.ciudad">
-          </div>
-
-          <div class="mb-3">
-            <label for="inputDireccion" class="form-label">Direccion</label>
-            <input type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel"
-            [(ngModel)]="hotelesModelPost.direccion">
-          </div>
-
-          <div class="mb-3">
-            <label for="inputDescripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" id="inputDescripcion" name="descripcion" #descripcion="ngModel"
-            [(ngModel)]="hotelesModelPost.descripcion">
-          </div>
-          <div class="mb-3">
-            <label for="administradorHotel" class="form-label">administradorHotel</label>
-            <input type="text" class="form-control" id="administradorHotel" name="administradorHotel" #administradorHotel="ngModel"
-            [(ngModel)]="hotelesModelPost.administradorHotel">
-          </div>
-
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="HotelAgregar()">Agregar</button>
-
-      </div>
-    </div>
-  </div>
-</div>

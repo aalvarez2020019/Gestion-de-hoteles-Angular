@@ -1,0 +1,29 @@
+<!-- Modal Ver Producto Empresa -->
+
+<br>
+<div class="container ">
+  <div class="container text-center text-Whyte bg-white py-4">
+      <div class="container">
+                  <h1 >
+                     USUARIOS REGISTRADOS</h1>
+<br>
+
+<div class ="container">
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let rolAdminHotel of hotelesModelGet">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ rolAdminHotel.nombre }}</h4>
+
+          <p class="card-text">ID: {{rolAdminHotel._id}}</p>
+          <p class="card-text">País: {{ rolAdminHotel.pais }}</p>
+          <p class="card-text">Ciudad: {{ rolAdminHotel.ciudad }}</p>
+          <p class="card-text">Direccion: {{ rolAdminHotel.direccion }}</p>
+          <p class="card-text">Descripcion: {{ rolAdminHotel.descripcion }}</p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

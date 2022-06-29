@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/usuario.model';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { HotelesService } from 'src/app/services/hoteles.service';
+import { Hoteles } from 'src/app/models/hoteles.model';
 
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.scss'],
-  providers: [ UsuariosService ]
+  providers: [ UsuariosService, HotelesService ]
 
 })
 export class UsuariosComponent implements OnInit {
@@ -19,6 +21,8 @@ export class UsuariosComponent implements OnInit {
   // importaciones rol admin hotel
   public usuariosGetHotel: Usuarios;
   public usuariosModelPost: Usuarios;
+  public hotelesModelPost: Hoteles;
+
 
 
 
@@ -26,12 +30,35 @@ export class UsuariosComponent implements OnInit {
 
 
 
-  constructor(private _usuarioService: UsuariosService, private _router: Router) {
+  constructor(
+    private _usuarioService: UsuariosService,
+    public _hotelesService: HotelesService ) {
+      
     this.usuariosModelPost = new Usuarios('', '', '', '', '', '', '');
     this.usuariosModelGetId = new Usuarios('', '', '', '', '', '', '');
+    this.hotelesModelPost = new Hoteles('', '', '', '', '', '', '');
 
     this.token = this._usuarioService.obtenerToken();
   }
+
+  // agregar hoteles
+    HotelAgregar(){
+    this._hotelesService.agregarHotel(this.hotelesModelPost, this._hotelesService.obtenerToken()).subscribe(
+
+      (response)=>{
+        console.log(response);
+
+      (error)=>{
+        console.log(error)
+
+      }
+
+
+    }
+  )
+  }
+
+
 
   // buscar rol_usuario
   getUsuarios(){

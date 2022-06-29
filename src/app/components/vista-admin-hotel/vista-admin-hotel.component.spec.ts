@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RolAdminAppComponent } from './rol-admin-app.component';
+import { VistaAdminHotelComponent } from './vista-admin-hotel.component';
 
-describe('RolAdminAppComponent', () => {
-  let component: RolAdminAppComponent;
-  let fixture: ComponentFixture<RolAdminAppComponent>;
+describe('VistaAdminHotelComponent', () => {
+  let component: VistaAdminHotelComponent;
+  let fixture: ComponentFixture<VistaAdminHotelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RolAdminAppComponent ]
+      declarations: [ VistaAdminHotelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RolAdminAppComponent);
+    fixture = TestBed.createComponent(VistaAdminHotelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

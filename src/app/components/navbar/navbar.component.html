@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/inicio">Kinal</a>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
 
         <li class="nav-item">
           <a class="nav-link" routerLink="/inicio" routerLinkActive="active">Inicio</a>
@@ -22,15 +24,17 @@
 
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"> Usuarios Admin </a>
+          <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"> Rol Admin </a>
         </li>
 
-        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/vista-admin-hotel" routerLinkActive="active"> Admin Hoteles </a>
+        </li>
 
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <a class="navbar-brand" (click)="clearToken()"  routerLink="/login" routerLinkActive="active">Cerrar sesión</a>
+
       </form>
     </div>
   </div>
