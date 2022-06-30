@@ -23,6 +23,7 @@ const routes: Routes = [
 
   { path: 'vista-admin-hotel', component: VistaAdminHotelComponent},
 
+
   { path: "**", component: LoginComponent },
 
 

@@ -13,7 +13,6 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
-import { EventosComponent } from './components/eventos/eventos.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
 
 @NgModule({
@@ -27,8 +26,8 @@ import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-a
     RegistrarComponent,
     UsuariosComponent,
     HotelAdminComponent,
-    EventosComponent,
     VistaAdminHotelComponent,
+
 
   ],
   imports: [

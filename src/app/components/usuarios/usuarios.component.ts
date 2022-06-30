@@ -31,13 +31,19 @@ export class UsuariosComponent implements OnInit {
 
 
   constructor(
-    private _usuarioService: UsuariosService,
+    public _usuarioService: UsuariosService,
     public _hotelesService: HotelesService ) {
-      
+
+    // Usuarios
     this.usuariosModelPost = new Usuarios('', '', '', '', '', '', '');
     this.usuariosModelGetId = new Usuarios('', '', '', '', '', '', '');
+
+    // Hoteles
     this.hotelesModelPost = new Hoteles('', '', '', '', '', '', '');
 
+    // Eventos
+
+    
     this.token = this._usuarioService.obtenerToken();
   }
 
