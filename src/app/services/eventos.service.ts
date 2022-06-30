@@ -35,8 +35,19 @@ export class EventosService {
     let headersToken = this.headersVariable.set('Authorization', token );
 
     return this._http.get(this.url + '/obtenerEventos', { headers: headersToken});
-    
+
   }
+
+    // agregar eventos
+    agregarEventos(modeloHab: Eventos, token) : Observable<any> {
+
+      let headersToken = this.headersVariable.set('Authorization', token )
+
+      let parametros = JSON.stringify(modeloHab);
+
+      return this._http.post(this.url + '/registrarEventos', parametros, {headers: headersToken});
+
+    }
 
 
 
