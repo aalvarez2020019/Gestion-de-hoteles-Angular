@@ -13,6 +13,7 @@ import { HotelesService } from 'src/app/services/hoteles.service';
 export class HotelAdminComponent implements OnInit {
   public hotelesModelGet: Hoteles;
   public hotelesModelPost: Hoteles;
+  public hotelesModelGetId: Hoteles;
   public token;
 
   constructor(
@@ -21,6 +22,7 @@ export class HotelAdminComponent implements OnInit {
   ) {
 
     this.hotelesModelPost = new Hoteles('', '', '', '', '', '', '');
+    this.hotelesModelGetId = new Hoteles('', '', '', '', '', '', '');
     this.token = this._hotelesService.obtenerToken();
   }
 
@@ -47,22 +49,58 @@ export class HotelAdminComponent implements OnInit {
     )
   };
 
+  getHotelId(idHotel){
 
-
-  HotelAgregar(){
-    this._hotelesService.agregarHotel(this.hotelesModelPost, this._hotelesService.obtenerToken()).subscribe(
+    this._hotelesService.ObtenerIdHotel(idHotel, this.token).subscribe(
 
       (response)=>{
         console.log(response);
+
+        this.hotelesModelGetId = response.AdminApp;
+
+      },
 
       (error)=>{
         console.log(error)
 
       }
+    )
+  }
 
+
+  putUsuarios(){
+    this._hotelesService.editarHoteles(this.hotelesModelGetId, this.token).subscribe(
+      (response)=>{
+
+        console.log(response);
+
+        console.log(this.hotelesModelGetId.administradorHotel);
+        this.getHotelesAdmin(this.hotelesModelGetId.administradorHotel);
+
+
+      },(error)=>{
+
+      }
+
+
+    )
+  }
+
+  // eliminar usuarios
+  eliminarUsuarios(id){
+    this._hotelesService.eliminarHoteles(id, this.token).subscribe(
+
+      (response)=>{
+        console.log(response);
+        this.getHotelesAdmin(id);
+
+
+      },
+      (error)=>{
+        console.log(error)
 
     }
-  )
+    )
   }
 
 

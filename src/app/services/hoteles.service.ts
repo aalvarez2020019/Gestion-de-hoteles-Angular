@@ -55,4 +55,37 @@ export class HotelesService {
 
   }
 
+  // obtener Id Hotel
+  ObtenerIdHotel(idHotel, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/hotelesAdmin/' + idHotel, { headers: headersToken});
+
+  }
+
+  // agregar hoteles Nuevo
+
+  
+  // editar hoteles
+  editarHoteles(modeloHoteles: Hoteles, token): Observable<any> {
+
+    let parametros = JSON.stringify(modeloHoteles);
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.put(this.url + '/editarHotel/' + modeloHoteles._id, parametros, { headers: headersToken })
+
+  }
+
+
+  // eliminar hoteles
+  eliminarHoteles( idUsuario, token ): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.delete(this.url + '/eliminarHotel/' +  idUsuario, { headers: headersToken});
+
+  }
+
 }

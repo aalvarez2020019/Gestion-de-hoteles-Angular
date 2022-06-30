@@ -5,7 +5,6 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
 
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'registrar', component: RegistrarComponent},
   { path: 'usuarios', component: UsuariosComponent},
 
-  { path: 'hoteles/:idUsuario', component: HotelesComponent},
 
   { path: 'hotelAdmin/:idUser', component: HotelAdminComponent},
 

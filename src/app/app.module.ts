@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
@@ -27,7 +26,6 @@ import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-a
     HeroDetailComponent,
     RegistrarComponent,
     UsuariosComponent,
-    HotelesComponent,
     HotelAdminComponent,
     EventosComponent,
     VistaAdminHotelComponent,
