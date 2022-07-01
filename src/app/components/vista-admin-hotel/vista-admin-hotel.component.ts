@@ -69,8 +69,8 @@ export class VistaAdminHotelComponent implements OnInit {
   ) {
 
     // servicios
-    this.serviciosModelPost = new Servicios('', '', '', '');
-    this.serviciosModelGetId = new Servicios('', '', '', '');
+    this.serviciosModelPost = new Servicios('', '', '', '', '');
+    this.serviciosModelGetId = new Servicios('', '', '', '', '');
 
     // habitaciones
     this.habitacionesModelPost = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '');
