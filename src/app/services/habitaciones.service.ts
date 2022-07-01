@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Habitaciones } from '../models/habitaciones.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +47,14 @@ export class HabitacionesService {
 
     return this._http.post(this.url + '/registrarHabitaciones', parametros, {headers: headersToken});
 
+  }
+
+   // obtener reservaciones
+   obtenerReservaciones(token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/verReservaciones', { headers: headersToken});
   }
 
 

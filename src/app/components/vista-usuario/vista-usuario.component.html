@@ -1,0 +1,32 @@
+<div class ="container">
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let adminHotel of habitacionesModelGet">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ adminHotel.nombreHabitacion }}</h4>
+
+          <p class="card-text">ID: {{adminHotel._id}}</p>
+          <p class="card-text">Descripcion: {{adminHotel.descripcion}}</p>
+
+          <h4 class="card-subtitle">Fecha incio</h4>
+          <input class="form-control" type="date" min="2019-01-01" name="fechaInicio" #fechaInicio="ngModel" [(ngModel)]="reservaModel.fechaInicio"/>
+          
+    <br />
+    <h4 class="card-subtitle">Fecha fin</h4>
+    <br />
+    <br />
+    <input class="form-control" type="date" value="tomorrow" name="fechaFin" #fechaFin="ngModel" [(ngModel)]="reservaModel.fechaFin"/>
+    <br />
+
+    <button type="button" class="btn btn-light" (click)="reservar(adminHotel._id)">
+      Reservar
+    </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Ver administrador Hotel -->

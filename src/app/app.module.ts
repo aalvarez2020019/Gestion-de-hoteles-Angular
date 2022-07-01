@@ -14,6 +14,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
+import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-a
     UsuariosComponent,
     HotelAdminComponent,
     VistaAdminHotelComponent,
+    VistaUsuarioComponent,
 
 
   ],

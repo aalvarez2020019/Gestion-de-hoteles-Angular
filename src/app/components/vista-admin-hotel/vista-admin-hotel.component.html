@@ -178,14 +178,14 @@
       <div class="modal-body">
 
         <form class="mb-3">
-          <label for="inputNombre" class="form-label">Nombre habitacion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+          <label for="nombre" class="form-label">Nombre habitacion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombre" name="nombre" #nombre="ngModel"
           [(ngModel)]="habitacionesModelPost.nombreHabitacion">
         </form>
 
         <form class="mb-3">
-          <label for="inputDescripcion" class="form-label">Descripcion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputDescripcion" name="descripcion" #descripcion="ngModel"
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel"
           [(ngModel)]="habitacionesModelPost.descripcion">
         </form>
 
@@ -247,20 +247,20 @@
       <div class="modal-body">
 
         <form class="mb-3">
-          <label for="inputNombre" class="form-label">Nombre evento</label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+          <label for="nombreI" class="form-label">Nombre evento</label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombreI" name="nombre" #nombre="ngModel"
           [(ngModel)]="eventosModelPost.nombre">
         </form>
 
         <form class="mb-3">
-          <label for="inputDescripcion" class="form-label">Descripcion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputDescripcion" name="descripcion" #descripcion="ngModel"
+          <label for="descripcionI" class="form-label">Descripcion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="descripcionI" name="descripcion" #descripcion="ngModel"
           [(ngModel)]="eventosModelPost.descripcion">
         </form>
 
         <form class="mb-3">
-          <label for="hotel" class="form-label">Ingrese el id del hotel</label>
-          <input type="text" autocomplete ="off" class="form-control" id="hotel" name="hotel" #hotel="ngModel"
+          <label for="hotelInput" class="form-label">Ingrese el id del hotel</label>
+          <input type="text" autocomplete ="off" class="form-control" id="hotelInput" name="hotel" #hotel="ngModel"
           [(ngModel)]="eventosModelPost.hotel">
         </form>
 

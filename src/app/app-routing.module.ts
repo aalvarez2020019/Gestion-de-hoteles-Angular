@@ -7,6 +7,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
+import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,8 @@ const routes: Routes = [
   { path: 'hotelAdmin/:idUser', component: HotelAdminComponent},
 
   { path: 'vista-admin-hotel', component: VistaAdminHotelComponent},
+
+  { path: 'vistaUsuario', component: VistaUsuarioComponent},
 
 
   { path: "**", component: LoginComponent },

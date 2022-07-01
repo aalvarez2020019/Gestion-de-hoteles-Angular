@@ -119,7 +119,7 @@
 
         <form class="mb-3">
           <label for="inputPassword" class="form-label"> Password </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputPassword" name="password" #password="ngModel"
+          <input type="password" autocomplete ="off" class="form-control" id="inputPassword" name="password" #password="ngModel"
           [(ngModel)]="usuariosModelPost.password">
         </form>
 
@@ -156,12 +156,12 @@
     <form>
       <div class ="mb-3">
 
-        <label for="inputNombre" class="form-label"> Nombre </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+        <label for="nombre" class="form-label"> Nombre </label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombre" name="nombre" #nombre="ngModel"
           [(ngModel)]="usuariosModelGetId.nombreUsuario">
 
-          <label for="inputEmail" class="form-label"> Email </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          <label for="email" class="form-label"> Email </label>
+          <input type="text" autocomplete ="off" class="form-control" id="email" name="email" #emai="ngModel"
           [(ngModel)]="usuariosModelGetId.email">
 
           <!-- <label for="inputPassword" class="form-label"> Password </label>
@@ -194,16 +194,16 @@
   <div class="offcanvas-body">
     <form>
       <div class ="mb-3">
-        <label for="inputNombre" class="form-label"> Nombre </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+        <label for="nombreI" class="form-label"> Nombre </label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombreI" name="nombre" #nombre="ngModel"
           [(ngModel)]="usuariosModelGetId.nombreUsuario">
 
-          <label for="inputEmail" class="form-label"> Email </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          <label for="emailInput" class="form-label"> Email </label>
+          <input type="text" autocomplete ="off" class="form-control" id="emailInput" name="email" #emai="ngModel"
           [(ngModel)]="usuariosModelGetId.email">
 
-          <label for="inputRol" class="form-label"> Rol </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputRol" name="rol" #rol="ngModel"
+          <label for="rol" class="form-label"> Rol </label>
+          <input type="text" autocomplete ="off" class="form-control" id="rol" name="rol" #rol="ngModel"
           [(ngModel)]="usuariosModelGetId.rol">
 
           <br>
@@ -227,8 +227,8 @@
         <form>
 
           <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre Hotel</label>
-            <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+            <label for="nombreInput" class="form-label">Nombre Hotel</label>
+            <input type="text" autocomplete ="off" class="form-control" id="nombreInput" name="nombre" #nombre="ngModel"
             [(ngModel)]="hotelesModelPost.nombre">
           </div>
 
