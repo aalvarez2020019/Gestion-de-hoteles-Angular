@@ -3,6 +3,9 @@ import { Hoteles } from 'src/app/models/hoteles.model';
 import { Servicios } from 'src/app/models/servicios.model';
 import { Habitaciones } from 'src/app/models/habitaciones.model';
 import { Eventos } from 'src/app/models/eventos.model';
+import { Reservaciones } from 'src/app/models/reservaciones.model';
+import { Factura } from 'src/app/models/factura.model';
+
 
 // importacion services hoteles
 import { AdminhotelesService } from 'src/app/services/adminhoteles.service';
@@ -50,6 +53,10 @@ export class VistaAdminHotelComponent implements OnInit {
   public eventosModelPost: Eventos;
   public eventosModelGetId: Eventos;
 
+  // Reservaciones y factura
+  public reservacionesModelGet: Reservaciones;
+  public facturaModel: Factura;
+
   public token;
 
 
@@ -72,6 +79,9 @@ export class VistaAdminHotelComponent implements OnInit {
     // eventos
     this.eventosModelPost = new Eventos('', '', '', '');
     this.eventosModelGetId = new Eventos('', '', '', '');
+
+    // factura
+    this.facturaModel = new Factura('', '', '', '', '', '', '', '', '', '');
 
 
     this.token = this._hotelesService.obtenerToken();
@@ -214,11 +224,38 @@ postAgregarEventos(){
 }
 
 
+// ver reservaciones
+getReservaciones(){
+  this._habitacionesService.obtenerReservaciones(this._habitacionesService.obtenerToken()).subscribe(
+
+    (response) => {
+
+      this.reservacionesModelGet = response.Usuario;
+
+      console.log(this.reservacionesModelGet);
+    },
+
+
+   )
+}
+
+factura(id) {
+  this._habitacionesService.factura(this.facturaModel, id).subscribe((response) => {
+
+      console.log(response);
+
+    });
+}
+
+
+
+
   ngOnInit(): void {
     this.getHoteles();
     this.getServicios();
     this.getHabitaciones();
     this.getEventos();
+    this.getReservaciones();
   }
 
 }

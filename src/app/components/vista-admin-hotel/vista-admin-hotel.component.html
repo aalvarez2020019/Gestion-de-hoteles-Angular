@@ -104,6 +104,9 @@
 <h1 >
   TODOS LOS EVENTOS</h1>
 
+
+
+
   <div class ="container">
 
     <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEvento">
@@ -126,6 +129,35 @@
       </div>
     </div>
   </div>
+  <br>
+<br>
+
+  <h1 >
+    TODAS LAS RESERVACIONES</h1>
+    <div class ="container">
+
+
+
+      <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let reservacion of reservacionesModelGet">
+          <div class="card">
+            <div class="card-body">
+
+              <h4 class="card-title">{{ reservacion._id }}</h4>
+              <p class="card-text">Fecha Inicio: {{reservacion.fechaInicio}}</p>
+              <p class="card-text">Fecha Fin: {{ reservacion.fechaFin}}</p>
+              <p class="card-text">Usuario: {{ reservacion.usuario }}</p>
+              <p class="card-text">Habitacion: {{ reservacion.habitacion }}</p>
+
+              <button type="button" class="btn btn-light" (click)="factura(reservacion._id)">
+                Factura
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
