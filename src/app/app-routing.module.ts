@@ -8,6 +8,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
 import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.component';
+import { VermodaladminhotelComponent } from './components/vermodaladminhotel/vermodaladminhotel.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,8 @@ const routes: Routes = [
   { path: 'vista-admin-hotel', component: VistaAdminHotelComponent},
 
   { path: 'vistaUsuario', component: VistaUsuarioComponent},
+
+  { path: 'modalAdminHotel/:idHotel', component: VermodaladminhotelComponent},
 
 
   { path: "**", component: LoginComponent },

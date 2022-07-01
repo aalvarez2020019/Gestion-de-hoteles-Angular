@@ -22,6 +22,11 @@
           <p class="card-text">Descripcion: {{ rolAdminHotel.descripcion }}</p>
 
 
+          <div class="card-footer text-muted">
+            <button type="button" class="btn btn btn-warning" (click)="getHoteles(rolAdminHotel._id)" [routerLink]="['/modalAdminHotel', rolAdminHotel._id]">Ver lo que tiene este hotel</button>
+
+          </div>
+
         </div>
       </div>
     </div>

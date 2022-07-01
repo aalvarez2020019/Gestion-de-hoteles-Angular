@@ -15,6 +15,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
 import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.component';
+import { VermodaladminhotelComponent } from './components/vermodaladminhotel/vermodaladminhotel.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.
     HotelAdminComponent,
     VistaAdminHotelComponent,
     VistaUsuarioComponent,
+    VermodaladminhotelComponent,
 
 
   ],
