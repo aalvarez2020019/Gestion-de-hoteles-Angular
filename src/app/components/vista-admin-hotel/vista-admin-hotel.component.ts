@@ -43,10 +43,12 @@ export class VistaAdminHotelComponent implements OnInit {
   // habitaciones
   public habitacionesModelGet: Habitaciones;
   public habitacionesModelPost: Habitaciones;
+  public habitacionesModelGetId: Habitaciones;
 
   // eventos
   public eventosModelGet: Eventos;
   public eventosModelPost: Eventos;
+  public eventosModelGetId: Eventos;
 
   public token;
 
@@ -65,9 +67,11 @@ export class VistaAdminHotelComponent implements OnInit {
 
     // habitaciones
     this.habitacionesModelPost = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '');
+    this.habitacionesModelGetId = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '');
 
     // eventos
     this.eventosModelPost = new Eventos('', '', '', '');
+    this.eventosModelGetId = new Eventos('', '', '', '');
 
 
     this.token = this._hotelesService.obtenerToken();
@@ -195,7 +199,7 @@ postAgregarEventos(){
   this._eventosService.agregarEventos(this.eventosModelPost, this._eventosService.obtenerToken()).subscribe(
 
     (response)=>{
-      
+
       console.log(response);
       this.getEventos();
 
