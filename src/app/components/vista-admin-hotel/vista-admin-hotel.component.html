@@ -22,11 +22,6 @@
           <p class="card-text">Descripcion: {{ rolAdminHotel.descripcion }}</p>
 
 
-          <div class="card-footer text-muted">
-            <button type="button" class="btn btn btn-warning" (click)="getHoteles(rolAdminHotel._id)" [routerLink]="['/modalAdminHotel', rolAdminHotel._id]">Ver lo que tiene este hotel</button>
-
-          </div>
-
         </div>
       </div>
     </div>
@@ -89,7 +84,7 @@
           <p class="card-text">ID: {{habitacion._id}}</p>
           <p class="card-text">Descripción: {{ habitacion.descripcion }}</p>
           <p class="card-text">Servicios del hotel: {{ habitacion.hotelServicios }}</p>
-          <p class="card-text">Noches: {{ habitacion.stockNoches }}</p>
+          <p class="card-text">Stock Noches: {{ habitacion.stockNoches }}</p>
           <p class="card-text">Estado: {{ habitacion.estado }}</p>
           <p class="card-text">Precio: {{ habitacion.precio }}</p>
           <p class="card-text">Total Habitacion: {{ habitacion.totalHab }}</p>
@@ -108,9 +103,6 @@
 
 <h1 >
   TODOS LOS EVENTOS</h1>
-
-
-
 
   <div class ="container">
 
@@ -134,35 +126,6 @@
       </div>
     </div>
   </div>
-  <br>
-<br>
-
-  <h1 >
-    TODAS LAS RESERVACIONES</h1>
-    <div class ="container">
-
-
-
-      <div class="row">
-        <div class="col-12 col-md-4" *ngFor="let reservacion of reservacionesModelGet">
-          <div class="card">
-            <div class="card-body">
-
-              <h4 class="card-title">{{ reservacion._id }}</h4>
-              <p class="card-text">Fecha Inicio: {{reservacion.fechaInicio}}</p>
-              <p class="card-text">Fecha Fin: {{ reservacion.fechaFin}}</p>
-              <p class="card-text">Usuario: {{ reservacion.usuario }}</p>
-              <p class="card-text">Habitacion: {{ reservacion.habitacion }}</p>
-
-              <button type="button" class="btn btn-light" (click)="factura(reservacion._id)">
-                Factura
-              </button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
@@ -215,14 +178,14 @@
       <div class="modal-body">
 
         <form class="mb-3">
-          <label for="nombre" class="form-label">Nombre habitacion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="nombre" name="nombre" #nombre="ngModel"
+          <label for="inputNombre" class="form-label">Nombre habitacion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
           [(ngModel)]="habitacionesModelPost.nombreHabitacion">
         </form>
 
         <form class="mb-3">
-          <label for="descripcion" class="form-label">Descripcion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="descripcion" name="descripcion" #descripcion="ngModel"
+          <label for="inputDescripcion" class="form-label">Descripcion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="inputDescripcion" name="descripcion" #descripcion="ngModel"
           [(ngModel)]="habitacionesModelPost.descripcion">
         </form>
 
@@ -284,20 +247,20 @@
       <div class="modal-body">
 
         <form class="mb-3">
-          <label for="nombreI" class="form-label">Nombre evento</label>
-          <input type="text" autocomplete ="off" class="form-control" id="nombreI" name="nombre" #nombre="ngModel"
+          <label for="inputNombre" class="form-label">Nombre evento</label>
+          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
           [(ngModel)]="eventosModelPost.nombre">
         </form>
 
         <form class="mb-3">
-          <label for="descripcionI" class="form-label">Descripcion</label>
-          <input type="text" autocomplete ="off" class="form-control" id="descripcionI" name="descripcion" #descripcion="ngModel"
+          <label for="inputDescripcion" class="form-label">Descripcion</label>
+          <input type="text" autocomplete ="off" class="form-control" id="inputDescripcion" name="descripcion" #descripcion="ngModel"
           [(ngModel)]="eventosModelPost.descripcion">
         </form>
 
         <form class="mb-3">
-          <label for="hotelInput" class="form-label">Ingrese el id del hotel</label>
-          <input type="text" autocomplete ="off" class="form-control" id="hotelInput" name="hotel" #hotel="ngModel"
+          <label for="hotel" class="form-label">Ingrese el id del hotel</label>
+          <input type="text" autocomplete ="off" class="form-control" id="hotel" name="hotel" #hotel="ngModel"
           [(ngModel)]="eventosModelPost.hotel">
         </form>
 

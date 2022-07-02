@@ -66,7 +66,7 @@ export class HotelesService {
 
   // agregar hoteles Nuevo
 
-
+  
   // editar hoteles
   editarHoteles(modeloHoteles: Hoteles, token): Observable<any> {
 
@@ -85,15 +85,6 @@ export class HotelesService {
     let headersToken = this.headersVariable.set('Authorization', token );
 
     return this._http.delete(this.url + '/eliminarHotel/' +  idUsuario, { headers: headersToken});
-
-  }
-
-  // obtener Hoteles Todos
-  obtenerHotelesTodos(token) : Observable<any> {
-
-    let headersToken = this.headersVariable.set('Authorization', token );
-
-    return this._http.get(this.url + '/obtenerHotelesTodos', { headers: headersToken});
 
   }
 
