@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Hoteles } from '../models/hoteles.model';
+import { Eventos } from '../models/eventos.model';
 
 
 @Injectable({
@@ -35,8 +36,10 @@ export class AdminhotelesService {
     let headersToken = this.headersVariable.set('Authorization', token );
 
     return this._http.get(this.url + '/verHotelesDelAdmin', { headers: headersToken});
-    
+
   }
+
+
 
 
 

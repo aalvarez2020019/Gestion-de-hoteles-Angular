@@ -73,6 +73,36 @@ export class VistaAdminHotelComponent implements OnInit {
     this.token = this._hotelesService.obtenerToken();
    }
 
+//editar servicios
+putServicios(){
+  this._serviciosService.editarServicios(this._serviciosService, this.token).subscribe(
+
+    (response)=>{
+      console.log(response);
+
+    },
+    (error)=>{
+      console.log(<any>error);
+
+  }
+  )
+}
+
+//eliminar servicios
+eliminarProductos(id){
+  this._serviciosService.eliminarServicios(id, this.token).subscribe(
+    (response)=>{
+      console.log(response);
+      this.getServicios()
+    },
+    (error)=>{
+      console.log(error)
+  }
+  )
+
+}
+
+
 // buscar rol_usuario
   getHoteles(){
   this._hotelesService.hotelesAdmin(this._hotelesService.obtenerToken()).subscribe(
@@ -195,7 +225,7 @@ postAgregarEventos(){
   this._eventosService.agregarEventos(this.eventosModelPost, this._eventosService.obtenerToken()).subscribe(
 
     (response)=>{
-      
+
       console.log(response);
       this.getEventos();
 
