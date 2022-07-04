@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { HotelAdminComponent } from './components/hotel-admin/hotel-admin.component';
 import { VistaAdminHotelComponent } from './components/vista-admin-hotel/vista-admin-hotel.component';
+import { VistaUsuarioComponent } from './components/vista-usuario/vista-usuario.component';
+import { VermodaladminhotelComponent } from './components/vermodaladminhotel/vermodaladminhotel.component';
+import { VermodalusuariosComponent } from './components/vermodalusuarios/vermodalusuarios.component';
+import { VistageneralComponent } from './components/vistageneral/vistageneral.component';
+import { VistahabitacionesadminComponent } from './components/vistahabitacionesadmin/vistahabitacionesadmin.component';
+import { VistareservacionesadminComponent } from './components/vistareservacionesadmin/vistareservacionesadmin.component';
 
 
 const routes: Routes = [
@@ -14,7 +19,6 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent},
   { path: 'inicio', component: InicioComponent},
-  { path: 'dashboard', component: DashboardComponent},
   { path: 'registrar', component: RegistrarComponent},
   { path: 'usuarios', component: UsuariosComponent},
 
@@ -22,6 +26,19 @@ const routes: Routes = [
   { path: 'hotelAdmin/:idUser', component: HotelAdminComponent},
 
   { path: 'vista-admin-hotel', component: VistaAdminHotelComponent},
+
+  { path: 'vistaUsuario', component: VistaUsuarioComponent},
+
+  { path: 'modalAdminHotel/:idHotel', component: VermodaladminhotelComponent},
+
+  { path: 'modalUsuarios/:idHotel', component: VermodalusuariosComponent},
+
+  { path: 'vistageneral/:idHotel', component: VistageneralComponent},
+
+  { path: 'vistaHabitacionesAdmin/:idHotel', component: VistahabitacionesadminComponent},
+
+  { path: 'vistareservacionesAdmin/:idHotel', component: VistareservacionesadminComponent},
+
 
 
   { path: "**", component: LoginComponent },

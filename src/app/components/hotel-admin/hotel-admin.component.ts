@@ -11,9 +11,11 @@ import { HotelesService } from 'src/app/services/hoteles.service';
   providers: [HotelesService]
 })
 export class HotelAdminComponent implements OnInit {
+  
   public hotelesModelGet: Hoteles;
   public hotelesModelPost: Hoteles;
   public hotelesModelGetId: Hoteles;
+  public hotelesTodosModelGet: Hoteles;
   public token;
 
   constructor(
@@ -31,6 +33,7 @@ export class HotelAdminComponent implements OnInit {
       console.log(dataRuta.get('idUser'));
 
       this.getHotelesAdmin(dataRuta.get('idUser'))
+      // this.getHotelesTodos();
 
     })
   }
@@ -102,6 +105,21 @@ export class HotelAdminComponent implements OnInit {
     }
     )
   }
+
+  getHotelesTodos(){
+
+    this._hotelesService.obtenerHotelesTodos(this._hotelesService.obtenerToken()).subscribe(
+
+     (response) => {
+       this.hotelesTodosModelGet = response.Usuario;
+       console.log(response);
+     },
+     (error) => {
+       console.log(<any>error)
+
+     }
+    )
+   }
 
 
 

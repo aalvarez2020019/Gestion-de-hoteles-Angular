@@ -10,7 +10,7 @@ import { Habitaciones } from '../models/habitaciones.model';
 export class RolusuarioService {
 
   public url: String = 'http://localhost:3000/api';
-  
+
     public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
     public headersToken = this.headersVariable.set('Authorization',this.obtenerToken());
@@ -41,6 +41,80 @@ export class RolusuarioService {
     let params = JSON.stringify(reservaciones);
     return this._http.post(this.url + '/reservar/' + id, params, {headers: this.headersToken,});
   }
+
+  // ver hoteles
+  verHoteles(token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/obtenerHoteles', { headers: headersToken});
+  }
+
+  // obtener Id Habitacion
+  obtenerIdHabitacion(idHab, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/obtenerIdHabitacion/' + idHab, { headers: headersToken});
+
+  }
+
+  // obtener eventos USUARIOS
+  HabitacionesUsuarios(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/verHabitaciones/' + idHotel, { headers: headersToken});
+
+  }
+
+  // obtener servicios USUARIOS
+  ServiciosUsuarios(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/verServicios/' + idHotel, { headers: headersToken});
+
+  }
+
+  // obtener eventos USUARIOS
+  eventosUsuarios(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/verEventosHotel/' + idHotel, { headers: headersToken});
+
+  }
+
+  // obtener Id hotel
+  verIdHotel(idHotel, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/hotelesId/' + idHotel, { headers: headersToken});
+
+  }
+
+  // editar habitaciones
+
+  editarCostoHabitación(modeloHab: Habitaciones, token): Observable<any> {
+
+    let parametros = JSON.stringify(modeloHab);
+
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.put(this.url + '/editarHabitacionesReserva/' + modeloHab._id, parametros, { headers: headersToken })
+
+  }
+
+
+
+
+
+
+
+
+
 
 
 

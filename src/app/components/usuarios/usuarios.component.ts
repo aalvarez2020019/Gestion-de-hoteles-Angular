@@ -4,6 +4,7 @@ import { Usuarios } from 'src/app/models/usuario.model';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { HotelesService } from 'src/app/services/hoteles.service';
 import { Hoteles } from 'src/app/models/hoteles.model';
+// import { Controles } from 'src/app/models/controles.model';
 
 
 @Component({
@@ -14,6 +15,28 @@ import { Hoteles } from 'src/app/models/hoteles.model';
 
 })
 export class UsuariosComponent implements OnInit {
+
+  chartOptions = {
+    responsive: true,
+  };
+
+  chartLabels:any = [];
+  chartData:any = [];
+  chartColors:any = [
+    {
+      backgroundColor: []
+    }
+  ];
+
+  chartLegend = true;
+  chartPlugins = [];
+
+
+  public controlModelGet: any = [];
+
+
+
+
   // importaciones rol usuario
   public usuariosModelGet: Usuarios;
   public usuariosModelGetId: Usuarios;
@@ -43,7 +66,7 @@ export class UsuariosComponent implements OnInit {
 
     // Eventos
 
-    
+
     this.token = this._usuarioService.obtenerToken();
   }
 
@@ -215,6 +238,33 @@ export class UsuariosComponent implements OnInit {
     )
   }
 
+  graficaProductoSucursal(){
+
+    this.chartData = [];
+    this.chartLabels = []
+    console.log(this.chartData);
+
+    this._usuarioService.verControl(this.token).subscribe(
+
+      (response)=>{
+
+        this.controlModelGet = response.Usuario;
+        this.controlModelGet.forEach(datos => {
+          this.chartLabels.push(datos.nombreHotel);
+          this.chartData.push(datos.cantidad);
+
+          this.chartColors[0].backgroundColor.push(`#${Math.floor(Math.random()*16777215).toString(16)}`);
+        })
+
+        console.log(this.controlModelGet)
+
+      },
+      (error)=>{
+        console.log(<any>error);
+      }
+    )
+  };
+
 
 
 
@@ -222,6 +272,7 @@ export class UsuariosComponent implements OnInit {
 
     this.getUsuarios();
     this.getUsuariosAdminHotel();
+    this.graficaProductoSucursal();
   }
 
 }

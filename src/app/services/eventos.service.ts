@@ -49,6 +49,20 @@ export class EventosService {
 
     }
 
+    //Editar Eventos
+    editarEventos(modeloHab: Eventos, token): Observable<any> {
+      let parametros = JSON.stringify(modeloHab);
+      let headersToken = this.headersVariable.set('Authorization', token);
+      return this._http.put(this.url + '/editarEventos' + modeloHab._id,parametros,{headers: headersToken})
+    }
+
+    //Eliminar eventos
+    eliminarEventos(idEvento, token): Observable<any>{
+      let headersToken = this.headersVariable.set('Authorization', token);
+      return this._http.delete(this.url + '/eliminarEvento' + idEvento,{headers: headersToken})
+    }
+    
+
 
 
 }

@@ -3,6 +3,9 @@ import { Hoteles } from 'src/app/models/hoteles.model';
 import { Servicios } from 'src/app/models/servicios.model';
 import { Habitaciones } from 'src/app/models/habitaciones.model';
 import { Eventos } from 'src/app/models/eventos.model';
+import { Reservaciones } from 'src/app/models/reservaciones.model';
+import { Factura } from 'src/app/models/factura.model';
+
 
 // importacion services hoteles
 import { AdminhotelesService } from 'src/app/services/adminhoteles.service';
@@ -34,6 +37,7 @@ export class VistaAdminHotelComponent implements OnInit {
 
   // hoteles
   public hotelesModelGet: Hoteles;
+  public hotelesModelGetId: Hoteles;
 
   // servicios
   public serviciosModelGet: Servicios;
@@ -43,10 +47,17 @@ export class VistaAdminHotelComponent implements OnInit {
   // habitaciones
   public habitacionesModelGet: Habitaciones;
   public habitacionesModelPost: Habitaciones;
+  public habitacionesModelGetId: Habitaciones;
 
   // eventos
   public eventosModelGet: Eventos;
   public eventosModelPost: Eventos;
+  public eventosModelGetId: Eventos;
+
+
+  // Reservaciones y factura
+  public reservacionesModelGet: Reservaciones;
+  public facturaModel: Factura;
 
   public token;
 
@@ -59,49 +70,29 @@ export class VistaAdminHotelComponent implements OnInit {
 
   ) {
 
+    // hoteles
+    this.hotelesModelGetId = new Hoteles('', '', '', '', '', '', '');
+
+
     // servicios
-    this.serviciosModelPost = new Servicios('', '', '', '');
-    this.serviciosModelGetId = new Servicios('', '', '', '');
+    this.serviciosModelPost = new Servicios('', '', '', '', '');
+    this.serviciosModelGetId = new Servicios('', '', '', '', '');
 
     // habitaciones
-    this.habitacionesModelPost = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '');
+    this.habitacionesModelPost = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '', '');
+    this.habitacionesModelGetId = new Habitaciones('', '', '', '', 0, '', 0, 0, 0, '', '');
 
     // eventos
-    this.eventosModelPost = new Eventos('', '', '', '');
+    this.eventosModelPost = new Eventos('', '', '', '', '');
+    this.eventosModelGetId = new Eventos('', '', '', '', '');
+    
+
+    // factura
+    this.facturaModel = new Factura('', '', '', '', '', '', '', '', '', '');
 
 
     this.token = this._hotelesService.obtenerToken();
    }
-
-//editar servicios
-putServicios(){
-  this._serviciosService.editarServicios(this._serviciosService, this.token).subscribe(
-
-    (response)=>{
-      console.log(response);
-
-    },
-    (error)=>{
-      console.log(<any>error);
-
-  }
-  )
-}
-
-//eliminar servicios
-eliminarProductos(id){
-  this._serviciosService.eliminarServicios(id, this.token).subscribe(
-    (response)=>{
-      console.log(response);
-      this.getServicios()
-    },
-    (error)=>{
-      console.log(error)
-  }
-  )
-
-}
-
 
 // buscar rol_usuario
   getHoteles(){
@@ -115,6 +106,26 @@ eliminarProductos(id){
 
   )
  }
+
+ // GET ID HOTEL
+ getHotelesPorId(idHotel){
+
+  this._hotelesService.verIdHotel(idHotel, this.token).subscribe(
+
+    (response)=>{
+      console.log(response);
+
+      this.hotelesModelGetId = response.Usuario;
+
+    },
+
+    (error)=>{
+      console.log(error)
+
+    }
+  )
+}
+
 
  // obtener servicios
 
@@ -240,11 +251,66 @@ postAgregarEventos(){
 }
 
 
+// ver reservaciones
+getReservaciones(){
+  this._habitacionesService.obtenerReservaciones(this._habitacionesService.obtenerToken()).subscribe(
+
+    (response) => {
+
+      this.reservacionesModelGet = response.Usuario;
+
+      console.log(this.reservacionesModelGet);
+    },
+
+
+   )
+}
+
+factura(id) {
+  this._habitacionesService.factura(this.facturaModel, id).subscribe((response) => {
+
+      console.log(response);
+
+    });
+}
+
+putEventos(){
+  this._eventosService.editarEventos(this.eventosModelGetId, this.token).subscribe(
+    (response) =>{
+      console.log(response);
+      this.getEventos();
+
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+
+  }
+
+  //El id se pasa en la funcion
+  deleteEventos(id){
+    this._eventosService.eliminarEventos(id,this.token).subscribe(
+          (response)=>{
+            console.log(response);
+            this.getEventos();
+      },
+
+      (error)=>{
+        console.log(<any> error)
+      }
+    )
+  }
+
+
+
+
   ngOnInit(): void {
     this.getHoteles();
     this.getServicios();
     this.getHabitaciones();
     this.getEventos();
+    this.getReservaciones();
   }
 
 }

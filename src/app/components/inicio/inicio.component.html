@@ -1,4 +1,5 @@
 
+
         <main>
           <div class="container pn-4 pt-4 pb-4">
 
@@ -97,4 +98,38 @@
   </div>
    </div>
   </div>
+
 </main>
+
+<br>
+<div class="container ">
+  <div class="container text-center text-Whyte bg-white py-4">
+      <div class="container">
+                  <h1 >
+                     VER TODOS LOS HOTELES</h1>
+<br>
+<div class ="container">
+
+
+
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let adminHotel of hotelesModelGet">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ adminHotel.nombre }}</h4>
+
+          <p class="card-text">ID: {{adminHotel._id}}</p>
+          <p class="card-text">País: {{ adminHotel.pais }}</p>
+          <p class="card-text">Ciudad: {{ adminHotel.ciudad }}</p>
+          <p class="card-text">Direccion: {{ adminHotel.direccion }}</p>
+          <p class="card-text">Descripcion: {{ adminHotel.descripcion }}</p>
+
+          <div class="card-footer text-muted">
+            <button type="button" class="btn btn btn-warning" (click)="getHotelesId(adminHotel._id)" [routerLink]="['/vistageneral', adminHotel._id]">Ver lo que ofrece este hotel</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

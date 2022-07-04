@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Servicios } from '../models/servicios.model';
+import { Habitaciones } from '../models/habitaciones.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,6 @@ export class ServiciosService {
 
   public url: String = 'http://localhost:3000/api';
     public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
-    public _id;
-    public nombreServicio;
-    public descripcionServicio;
-    public hotel;
 
 
     public token;
@@ -30,6 +27,34 @@ export class ServiciosService {
     }
 
     return this.token;
+  }
+
+  // obtener servicios ADMIN_HOTEL
+  ServiciosAdminHotel(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/obtenerServiciosHotel/' + idHotel, { headers: headersToken});
+
+  }
+
+
+  // obtener habitaciones ADMIN_HOTEL
+  HabitacionesAdminHotel(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/obtenerHabitacionesHotel/' + idHotel, { headers: headersToken});
+
+  }
+
+  // obtener eventos ADMIN_HOTEL
+  EventosAdminHotel(idHotel, token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    return this._http.get(this.url + '/obtenerEventosHotel/' + idHotel, { headers: headersToken});
+
   }
 
   // obtener servicios
@@ -60,22 +85,6 @@ export class ServiciosService {
 
   }
 
-  eliminarServicios( idServicio, token ): Observable<any> {
-
-    let headersToken = this.headersVariable.set('Authorization', token );
-
-    return this._http.delete(this.url + '/eliminarServicios/' +  idServicio, { headers: headersToken});
-
-  }
-
-  editarServicios(modeloServ: Servicios, token): Observable<any> {
-
-    let parametros = JSON.stringify(modeloServ);
-
-    let headersToken = this.headersVariable.set('Authorization', token)
-
-    return this._http.put(this.url + '/editarServicios/' + modeloServ._id, parametros, { headers: headersToken})
-  }
 
 
 }

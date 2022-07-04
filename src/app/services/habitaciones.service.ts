@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Habitaciones } from '../models/habitaciones.model';
+import { Factura } from '../models/factura.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ export class HabitacionesService {
   public url: String = 'http://localhost:3000/api';
     public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
+    public headersToken = this.headersVariable.set('Authorization',this.obtenerToken());
 
     public token;
 
@@ -48,5 +51,20 @@ export class HabitacionesService {
 
   }
 
+   // obtener reservaciones
+   obtenerReservaciones(token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/verReservaciones', { headers: headersToken});
+  }
+
+  // factura
+  factura(reservaciones: Factura, id): Observable<any> {
+
+    let params = JSON.stringify(reservaciones);
+
+    return this._http.post(this.url + '/factura/' + id, params, {headers: this.headersToken,});
+  }
 
 }

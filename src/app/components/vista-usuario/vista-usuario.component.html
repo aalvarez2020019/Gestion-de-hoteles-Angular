@@ -1,24 +1,75 @@
+<br>
+<div class="container ">
+  <div class="container text-center text-Whyte bg-white py-4">
+      <div class="container">
+
+        <h1 >
+          TODOS LOS HOTELES</h1>
+          <div class ="container">
+
+            <div class="row">
+              <div class="col-12 col-md-4" *ngFor="let hotel of hotelesModelGet">
+                <div class="card text-white">
+                  <div class="card-body">
+
+                    <h4 class="card-title">{{ hotel.nombre }}</h4>
+
+                    <p class="card-text">ID: {{hotel._id}}</p>
+                    <p class="card-text">País: {{ hotel.pais }}</p>
+                    <p class="card-text">Ciudad: {{ hotel.ciudad }}</p>
+                    <p class="card-text">Direccion: {{ hotel.direccion }}</p>
+                    <p class="card-text">Descripcion: {{ hotel.descripcion }}</p>
+
+                    <div class="card-footer text-muted">
+                      <button type="button" class="btn btn btn-warning" (click)="getHotelesId(hotel._id)" [routerLink]="['/modalUsuarios', hotel._id]">Ver lo que ofrece este hotel</button>
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <h1 >
+                     VER LAS HABITACIONES</h1>
+<br>
+<br>
+
+
 <div class ="container">
   <div class="row">
     <div class="col-12 col-md-4" *ngFor="let adminHotel of habitacionesModelGet">
-      <div class="card">
+      <div class="card text-white">
         <div class="card-body">
           <h4 class="card-title">{{ adminHotel.nombreHabitacion }}</h4>
 
           <p class="card-text">ID: {{adminHotel._id}}</p>
           <p class="card-text">Descripcion: {{adminHotel.descripcion}}</p>
+          <p class="card-text">Estado: {{adminHotel.estado}}</p>
+          <p class="card-text">Precio de Habitación: {{adminHotel.precio}}</p>
+          <p class="card-text">Número de noches: {{adminHotel.stockNoches}}</p>
+          <p class="card-text">Total de la habitación: {{adminHotel.totalHab}}</p>
+          <p class="card-text">Ingresar nit: {{adminHotel.nit}}</p>
+          <p class="card-text">Pertenece al hotel: {{ adminHotel.hotel }}</p>
 
+          <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#editarUsuariosApp"
+          aria-controls="offcanvasExample"(click)="getHabitacionesId(adminHotel._id)">
+            Número de noches y nit
+          </button>
+
+
+          <br />
+          <br />
           <h4 class="card-subtitle">Fecha incio</h4>
           <input class="form-control" type="date" min="2019-01-01" name="fechaInicio" #fechaInicio="ngModel" [(ngModel)]="reservaModel.fechaInicio"/>
-          
+
     <br />
     <h4 class="card-subtitle">Fecha fin</h4>
-    <br />
-    <br />
     <input class="form-control" type="date" value="tomorrow" name="fechaFin" #fechaFin="ngModel" [(ngModel)]="reservaModel.fechaFin"/>
     <br />
 
-    <button type="button" class="btn btn-light" (click)="reservar(adminHotel._id)">
+    <button type="button" class="btn btn-success" (click)="reservar(adminHotel._id)">
       Reservar
     </button>
 
@@ -28,5 +79,34 @@
   </div>
 </div>
 
+<br>
+<br>
 
-<!-- Modal Ver administrador Hotel -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="editarUsuariosApp" aria-labelledby="offcanvasExampleLabel">
+
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Configure su reservación</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <form>
+      <div class ="mb-3">
+
+        <label for="nombre" class="form-label"> Número de noches </label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombre" name="nombre" #nombre="ngModel"
+          [(ngModel)]="habitacionesModelGetId.stockNoches">
+
+          <label for="email" class="form-label"> Nit </label>
+          <input type="text" autocomplete ="off" class="form-control" id="email" name="email" #emai="ngModel"
+          [(ngModel)]="habitacionesModelGetId.nit">
+
+          <button class="btn btn-success" data-bs-dismiss="offcanvas" (click)="putUsuarios()">Editar Usuarios</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

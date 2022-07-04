@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Hoteles } from '../models/hoteles.model';
-import { Eventos } from '../models/eventos.model';
 
 
 @Injectable({
@@ -39,7 +38,14 @@ export class AdminhotelesService {
 
   }
 
+  // obtener id hotel ADMIN_HOTEL
+  verIdHotel(idHotel, token): Observable<any> {
 
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/verIdHotel/' + idHotel, { headers: headersToken});
+
+  }
 
 
 

@@ -143,4 +143,40 @@ export class UsuariosService {
       return this._http.delete(this.url + '/rolAdminHotelEliminar/' +  idUsuario, { headers: headersToken});
 
     }
+
+    // control ver
+  verControl(token) : Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/verControles', { headers: headersToken});
+  }
+
+  // ver habitaciones del hotel rol Usuario
+  HabitacionesUsuario(idHotel, token) : Observable<any> {
+
+  let headersToken = this.headersVariable.set('Authorization', token )
+
+  return this._http.get(this.url + '/obtenerHabiHotel/' + idHotel, { headers: headersToken});
+
+  }
+
+  // obtener por el id ROL_ADMIN_HOTEL
+  obtenerIdHab(idUsuario, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/obtenerHabId/' + idUsuario, { headers: headersToken});
+
+  }
+
+  // obtener reservaciones por id
+  verReservacionesHab(idReserv, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization', token );
+
+    return this._http.get(this.url + '/obtenerReservaciones/' + idReserv, { headers: headersToken});
+
+  }
+
 }

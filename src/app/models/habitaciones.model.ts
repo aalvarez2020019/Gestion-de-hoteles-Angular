@@ -1,6 +1,6 @@
 export class Habitaciones {
   constructor(
-    
+
     public _id: String,
     public nombreHabitacion: String,
     public estado: String,
@@ -11,6 +11,7 @@ export class Habitaciones {
     public nit: Number,
     public stockNoches: Number,
     public hotel: String,
+    public idUsuario: String
 
   ){}
 }

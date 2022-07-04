@@ -13,9 +13,13 @@
 <div class = "container">
   <div class ="row">
     <div class="col-12 col-md-4" *ngFor="let user of usuariosModelGet">
-      <div class="card">
+      <div class="card text-white">
         <div class="card-body">
           <h4 class="card-title">{{ user.nombreUsuario }}</h4>
+
+          <img id="logos" src="../../../assets/img/user_icon_143482.png" class="card-img-top" alt="compras-logo">
+          <br>
+          <br>
 
           <p class="card-text">ID: {{user._id}}</p>
           <p class="card-text">Email: {{ user.email }}</p>
@@ -36,7 +40,7 @@
           </div>
 
         </div>
-      </div>
+
     </div>
   </div>
 </div>
@@ -48,53 +52,59 @@
   ADMINISTRADORES DE HOTELES</h1>
 
 
-  <div class = "container">
+
   <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarAdminHotel">
     Agregar administradores
   </button>
+    <br>
+    <br>
+    <div class ="row " >
+      <div class="col-12 col-md-4"  *ngFor="let adminHotel of usuariosGetHotel">
 
-    <div class ="row">
-      <div class="col-12 col-md-4" *ngFor="let adminHotel of usuariosGetHotel">
-        <div class="card">
-          <div class="card-body">
+          <div class="card text-white">
+            <div class="card-body">
             <h4 class="card-title">{{ adminHotel.nombreUsuario }}</h4>
+
+            <img id="logos" src="../../../assets/img/iconoadmin.png" class="card-img-top" alt="compras-logo">
+            <br>
+            <br>
 
             <p class="card-text">ID: {{adminHotel._id}}</p>
             <p class="card-text">Email: {{ adminHotel.email }}</p>
             <p class="card-text">Rol: {{ adminHotel.rol }}</p>
 
             <div class="card-footer text-muted">
+
               <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
               aria-controls="offcanvasExample" (click)="getUsuariosIdAdminHotel(adminHotel._id)">
               Editar
               </button>
 
               <button type="button" class="btn btn-danger mx-2" (click)="hotelAdminEliminar(adminHotel._id)">Eliminar</button>
+              <br>
+              <br>
+              <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarHotel">
+                Agregar Hoteles
+              </button>
 
 
             </div>
-
-            <div class="card-footer text-muted">
-
-            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarHotel">
-              Agregar Hoteles
-            </button>
-
-             </div>
-
 
             <div class="card-footer text-muted">
               <button type="button" class="btn btn btn-warning" (click)="getUsuariosIdAdminHotel(adminHotel._id)" [routerLink]="['/hotelAdmin', adminHotel._id]">Administrar hoteles</button>
 
             </div>
 
-
+            <!-- <div class="card-footer text-muted">
+              <button type="button" class="btn btn btn-warning" [routerLink]="['/grafica', adminHotel._id]">Ver gráfica</button>
+            </div> -->
 
           </div>
-        </div>
+          </div>
+          </div>
+          </div>
       </div>
-    </div>
-  </div>
+
 
 <!-- Modal Agregar Administrador Hoteles-->
 <div class="modal fade" id="modalAgregarAdminHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -119,7 +129,7 @@
 
         <form class="mb-3">
           <label for="inputPassword" class="form-label"> Password </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputPassword" name="password" #password="ngModel"
+          <input type="password" autocomplete ="off" class="form-control" id="inputPassword" name="password" #password="ngModel"
           [(ngModel)]="usuariosModelPost.password">
         </form>
 
@@ -156,12 +166,12 @@
     <form>
       <div class ="mb-3">
 
-        <label for="inputNombre" class="form-label"> Nombre </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+        <label for="nombre" class="form-label"> Nombre </label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombre" name="nombre" #nombre="ngModel"
           [(ngModel)]="usuariosModelGetId.nombreUsuario">
 
-          <label for="inputEmail" class="form-label"> Email </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          <label for="email" class="form-label"> Email </label>
+          <input type="text" autocomplete ="off" class="form-control" id="email" name="email" #emai="ngModel"
           [(ngModel)]="usuariosModelGetId.email">
 
           <!-- <label for="inputPassword" class="form-label"> Password </label>
@@ -194,16 +204,16 @@
   <div class="offcanvas-body">
     <form>
       <div class ="mb-3">
-        <label for="inputNombre" class="form-label"> Nombre </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+        <label for="nombreI" class="form-label"> Nombre </label>
+          <input type="text" autocomplete ="off" class="form-control" id="nombreI" name="nombre" #nombre="ngModel"
           [(ngModel)]="usuariosModelGetId.nombreUsuario">
 
-          <label for="inputEmail" class="form-label"> Email </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputEmail" name="email" #emai="ngModel"
+          <label for="emailInput" class="form-label"> Email </label>
+          <input type="text" autocomplete ="off" class="form-control" id="emailInput" name="email" #emai="ngModel"
           [(ngModel)]="usuariosModelGetId.email">
 
-          <label for="inputRol" class="form-label"> Rol </label>
-          <input type="text" autocomplete ="off" class="form-control" id="inputRol" name="rol" #rol="ngModel"
+          <label for="rol" class="form-label"> Rol </label>
+          <input type="text" autocomplete ="off" class="form-control" id="rol" name="rol" #rol="ngModel"
           [(ngModel)]="usuariosModelGetId.rol">
 
           <br>
@@ -227,8 +237,8 @@
         <form>
 
           <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre Hotel</label>
-            <input type="text" autocomplete ="off" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+            <label for="nombreInput" class="form-label">Nombre Hotel</label>
+            <input type="text" autocomplete ="off" class="form-control" id="nombreInput" name="nombre" #nombre="ngModel"
             [(ngModel)]="hotelesModelPost.nombre">
           </div>
 
@@ -256,7 +266,7 @@
             [(ngModel)]="hotelesModelPost.descripcion">
           </div>
           <div class="mb-3">
-            <label for="administradorHotel" class="form-label">administradorHotel</label>
+            <label for="administradorHotel" class="form-label"> id del administradorHotel</label>
             <input type="text" autocomplete ="off" class="form-control" id="administradorHotel" name="administradorHotel" #administradorHotel="ngModel"
             [(ngModel)]="hotelesModelPost.administradorHotel">
           </div>
@@ -274,3 +284,35 @@
     </div>
   </div>
 </div>
+
+<br>
+<br>
+
+</div>
+
+
+<div class="container ">
+<h1 >
+  HOTELES MÁS SOLICITADOS</h1>
+
+
+  <div class = "container">
+    <div
+    style="display: block;">
+    <canvas
+    baseChart chartType="pie"
+    [data]="chartData"
+    [colors]="chartColors"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [plugins]="chartPlugins"
+    [legend]="chartLegend">
+    </canvas>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+
